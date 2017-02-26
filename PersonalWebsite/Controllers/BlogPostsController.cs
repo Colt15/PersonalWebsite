@@ -15,6 +15,26 @@ namespace PersonalWebsite.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+        public PartialViewResult _CommentItem(string slug)
+        {
+            if (String.IsNullOrWhiteSpace(slug))
+            {
+                ViewBag.CommentCount = "";
+                return PartialView();
+            }
+
+            BlogPost blogPost = db.Posts.FirstOrDefault(p => p.Slug == slug);
+            if (blogPost == null)
+            {
+                ViewBag.CommentCount = "";
+                return PartialView();
+            }
+
+            ViewBag.CommentCount = blogPost.Comments.Count.ToString();
+            return PartialView();
+        }
+
         // GET: BlogPosts
         public ActionResult Index()
         {
@@ -35,8 +55,6 @@ namespace PersonalWebsite.Controllers
             }
             return View(blogPost);
         }
-
-        // GET: BlogPosts/Create
         public ActionResult Create()
         {
             return View();

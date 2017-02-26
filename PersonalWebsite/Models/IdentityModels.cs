@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace PersonalWebsite.Models
 {
@@ -41,5 +42,6 @@ namespace PersonalWebsite.Models
         }
         public DbSet<BlogPost> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public IEnumerable ApplicationUsers { get; internal set; }
     }
 }
