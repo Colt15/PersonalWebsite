@@ -406,10 +406,16 @@
     <Content Include="Template\Company Template.html" />
     <Content Include="Template\custom.css" />
     <Content Include="Template\custom.js" />
+    <Content Include="Template\Images\cablesright.jpg" />
+    <Content Include="Template\Images\laptopright.jpg" />
     <Content Include="Template\Images\calc.png" />
     <Content Include="Template\Images\coffee.png" />
+    <Content Include="Template\Images\laptopcenter.jpg" />
     <Content Include="Template\Images\exchange.png" />
     <Content Include="Template\Images\factorial.png" />
+    <Content Include="Template\Images\laptopleft.jpg" />
+    <Content Include="Template\Images\profile.jpg" />
+    <Content Include="Template\Images\uparrow.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

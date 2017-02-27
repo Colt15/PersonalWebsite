@@ -36,10 +36,23 @@ namespace PersonalWebsite.Models
         }
 
         // GET: Comments/Create
-        public ActionResult Create()
+        public ActionResult Create(string slug)
         {
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName");
+            if (String.IsNullOrWhiteSpace(slug))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BlogPost blogPost = db.Posts.FirstOrDefault(p => p.Slug == slug);
+            if (blogPost == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName");
             ViewBag.PostId = new SelectList(db.Posts, "Id", "Title");
+            ViewBag.SlugText = blogPost.Slug;
+
+
             return View();
         }
 

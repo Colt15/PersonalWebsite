@@ -57,7 +57,7 @@ namespace PersonalWebsite.Controllers
                 var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
                 var message = new MailMessage();
                 message.To.Add(new MailAddress("tyler.r@outlook.com")); //replace with valid value
-                message.Subject = "Your email subject";
+                message.Subject = "Message from Portfolio Site";
                 message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
                 message.IsBodyHtml = true;
                 using (var smtp = new SmtpClient())
